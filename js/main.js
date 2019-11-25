@@ -91,7 +91,7 @@ class FlapRow {
             row.setFont( fontRow[ cycle ] );
             cycle = cycle == 2 ? 0 : cycle + 1;
             setTimeout( doCycle, DelayBeforeChange );
-        }
+        };
         board.appendChild( row.el );
         setTimeout( doCycle, i * DelayOnStart );
     } );
