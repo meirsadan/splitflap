@@ -1,0 +1,78 @@
+body {
+    /* direction: rtl; */
+    margin: 0;
+    background-color: #222;
+}
+
+#flapboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+#flapboard:after {
+    content: "";
+    display: block;
+    height: 25px;
+}
+
+.flap-row {
+    display: flex;
+}
+
+.flap {
+    /* flex: 0 0 105px; */
+    flex: 1;
+    position: relative;
+    height: 0;
+    padding-top: 5.65%;
+    /* margin: 5px; */
+}
+
+.flap-part {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 45%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 75ms transform;
+    transition-timing-function: ease-in;
+}
+
+.flap-part.top {
+    bottom: 50%;
+    transform-origin: bottom;
+}
+
+.flap-part.bottom {
+    top: 50%;
+    background-position-y: 100%;
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+.flap.one > .bottom.two,
+.flap.two > .bottom.one {
+    transform: scaleY(0);
+    transition-delay: 150ms;
+}
+
+.flap.one > .bottom.one,
+.flap.two > .bottom.two {
+    z-index: 100;
+    transform: scaleY(1);
+    transition-delay: 75ms;
+}
+
+.flap.one > .top.two,
+.flap.two > .top.one {
+    z-index: 100;
+    transform: scaleY(0);
+}
+
+.flap.one > .top.one,
+.flap.two > .top.two {
+    transition: none;
+}
